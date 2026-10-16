@@ -1,0 +1,13 @@
+{
+  "scope": "Full q4, degree3 hierarchy through eight vertices; profiling/tracemalloc overhead included, not a timing comparison",
+  "shape": [
+    8510,
+    2748
+  ],
+  "nonzeros": 26938,
+  "constant_checks": 17,
+  "system_sha256": "10a0d3a30a79d82e2a7745af8845465177c6fb294762c5a11c6d29c5f211a615",
+  "profiled_seconds": 3.3593086670152843,
+  "python_traced_peak_bytes": 9623356,
+  "profile": "         5051442 function calls (4964260 primitive calls) in 3.357 seconds\n\n   Ordered by: cumulative time\n   List reduced from 77 to 12 due to restriction <12>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    1.580    1.580    3.357    3.357 model.py:56(build_hierarchy)\n    69757    0.070    0.000    0.601    0.000 model.py:78(item)\n    84514    0.121    0.000    0.452    0.000 combinatorics.py:35(normalize)\n   610767    0.180    0.000    0.330    0.000 combinatorics.py:37(<genexpr>)\n   244835    0.199    0.000    0.317    0.000 fractions.py:203(__new__)\n        1    0.001    0.001    0.262    0.262 combinatorics.py:109(enumerate_trees)\n       28    0.095    0.003    0.240    0.009 combinatorics.py:93(tree_from_adj)\n33901/20370    0.074    0.000    0.226    0.000 {built-in method builtins.sorted}\n    86128    0.037    0.000    0.216    0.000 fractions.py:663(forward)\n    17635    0.016    0.000    0.134    0.000 combinatorics.py:145(star_density)\n   526253    0.129    0.000    0.129    0.000 {method 'setdefault' of 'dict' objects}\n    68169    0.025    0.000    0.117    0.000 model.py:121(<genexpr>)\n\n\n"
+}

@@ -1,0 +1,207 @@
+{
+  "format_version": 1,
+  "preflight": "ASSESSED_RUN",
+  "evidence": "CLAIM_FACING",
+  "placement": "LOCAL_EXECUTION; one worker and one BLAS/OpenMP thread",
+  "python": "3.13.3",
+  "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "dependencies": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "mpmath": "1.3.0",
+    "sympy": "1.14.0",
+    "python-flint": "0.8.0"
+  },
+  "timer": "perf_counter; validation and profiling excluded from timings",
+  "memory": "Fresh-worker absolute peak RSS after timing includes imports, inputs, outputs and validation. Python traced peak is one separate call and excludes untraced native allocations.",
+  "cost": "Setup/import, first call and warm public calls are separated. Internal caches may be reused.",
+  "results": [
+    {
+      "case": "small",
+      "settings": {
+        "vertices": 5,
+        "colors": 4,
+        "geometry": "labelled path",
+        "variant": "reference",
+        "cost_scope": "pattern enumeration only; not LP solve"
+      },
+      "validation": {
+        "passed": true,
+        "patterns": 14
+      },
+      "source_sha256": "bed5156a24a3043a21dcdec394077ca07cea01f4a169126c8a5f4d618cd106c3",
+      "setup_seconds": 0.0016200420213863254,
+      "first_call_seconds": 0.00045758404303342104,
+      "warm_seconds": [
+        0.0005168749485164881,
+        0.0004475829191505909,
+        0.0004639580147340894,
+        0.00045704201329499483,
+        0.00044916698243469
+      ],
+      "median_seconds": 0.00045704201329499483,
+      "minimum_seconds": 0.0004475829191505909,
+      "maximum_seconds": 0.0005168749485164881,
+      "python_traced_peak_bytes": 2960,
+      "fresh_worker_peak_rss_bytes": 27377664,
+      "profile": "         11762 function calls in 0.001 seconds\n\n   Ordered by: cumulative time\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000    0.001    0.001 core_cases.py:15(call)\n        1    0.000    0.000    0.001    0.001 combinatorics.py:177(exhaustive_patterns)\n     1024    0.000    0.000    0.001    0.000 {built-in method builtins.all}\n      324    0.000    0.000    0.001    0.000 combinatorics.py:35(normalize)\n     1944    0.000    0.000    0.000    0.000 combinatorics.py:37(<genexpr>)\n     5224    0.000    0.000    0.000    0.000 combinatorics.py:186(<genexpr>)\n     1620    0.000    0.000    0.000    0.000 {method 'setdefault' of 'dict' objects}\n     1622    0.000    0.000    0.000    0.000 {built-in method builtins.len}\n        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}\n        1    0.000    0.000    0.000    0.000 {built-in method builtins.sorted}\n\n\n",
+      "implementation": "reference"
+    },
+    {
+      "case": "small",
+      "settings": {
+        "vertices": 5,
+        "colors": 4,
+        "geometry": "labelled path",
+        "variant": "optimized",
+        "cost_scope": "pattern enumeration only; not LP solve"
+      },
+      "validation": {
+        "passed": true,
+        "patterns": 14
+      },
+      "source_sha256": "bed5156a24a3043a21dcdec394077ca07cea01f4a169126c8a5f4d618cd106c3",
+      "setup_seconds": 0.0016240839613601565,
+      "first_call_seconds": 1.3332930393517017e-05,
+      "warm_seconds": [
+        7.6249707490205765e-06,
+        6.708083674311638e-06,
+        6.082933396100998e-06,
+        7.08398874849081e-06,
+        6.041023880243301e-06
+      ],
+      "median_seconds": 6.708083674311638e-06,
+      "minimum_seconds": 6.041023880243301e-06,
+      "maximum_seconds": 7.6249707490205765e-06,
+      "python_traced_peak_bytes": 3088,
+      "fresh_worker_peak_rss_bytes": 26968064,
+      "profile": "         174 function calls (151 primitive calls) in 0.000 seconds\n\n   Ordered by: cumulative time\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000    0.000    0.000 core_cases.py:15(call)\n        1    0.000    0.000    0.000    0.000 combinatorics.py:153(proper_patterns)\n        1    0.000    0.000    0.000    0.000 combinatorics.py:40(proper_partitions)\n     24/1    0.000    0.000    0.000    0.000 combinatorics.py:43(add)\n        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}\n        5    0.000    0.000    0.000    0.000 {built-in method builtins.any}\n       13    0.000    0.000    0.000    0.000 combinatorics.py:165(<genexpr>)\n       57    0.000    0.000    0.000    0.000 {built-in method builtins.len}\n       23    0.000    0.000    0.000    0.000 {built-in method builtins.max}\n       14    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}\n       18    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}\n        6    0.000    0.000    0.000    0.000 combinatorics.py:161(<genexpr>)\n       10    0.000    0.000    0.000    0.000 {built-in method builtins.min}\n\n\n",
+      "implementation": "optimized"
+    },
+    {
+      "case": "medium",
+      "settings": {
+        "vertices": 7,
+        "colors": 4,
+        "geometry": "labelled path",
+        "variant": "optimized",
+        "cost_scope": "pattern enumeration only; not LP solve"
+      },
+      "validation": {
+        "passed": true,
+        "patterns": 122
+      },
+      "source_sha256": "bed5156a24a3043a21dcdec394077ca07cea01f4a169126c8a5f4d618cd106c3",
+      "setup_seconds": 0.008465540944598615,
+      "first_call_seconds": 3.933394327759743e-05,
+      "warm_seconds": [
+        3.14170029014349e-05,
+        2.870894968509674e-05,
+        2.670893445611e-05,
+        2.5667017325758934e-05,
+        3.162503708153963e-05
+      ],
+      "median_seconds": 2.870894968509674e-05,
+      "minimum_seconds": 2.5667017325758934e-05,
+      "maximum_seconds": 3.162503708153963e-05,
+      "python_traced_peak_bytes": 4944,
+      "fresh_worker_peak_rss_bytes": 27115520,
+      "profile": "         1011 function calls (825 primitive calls) in 0.000 seconds\n\n   Ordered by: cumulative time\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000    0.000    0.000 core_cases.py:15(call)\n        1    0.000    0.000    0.000    0.000 combinatorics.py:153(proper_patterns)\n        1    0.000    0.000    0.000    0.000 combinatorics.py:40(proper_partitions)\n    187/1    0.000    0.000    0.000    0.000 combinatorics.py:43(add)\n      387    0.000    0.000    0.000    0.000 {built-in method builtins.len}\n      186    0.000    0.000    0.000    0.000 {built-in method builtins.max}\n        7    0.000    0.000    0.000    0.000 {built-in method builtins.any}\n        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}\n      122    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}\n       19    0.000    0.000    0.000    0.000 combinatorics.py:165(<genexpr>)\n       65    0.000    0.000    0.000    0.000 {built-in method builtins.min}\n       26    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}\n        8    0.000    0.000    0.000    0.000 combinatorics.py:161(<genexpr>)\n\n\n",
+      "implementation": "optimized"
+    },
+    {
+      "case": "medium",
+      "settings": {
+        "vertices": 7,
+        "colors": 4,
+        "geometry": "labelled path",
+        "variant": "reference",
+        "cost_scope": "pattern enumeration only; not LP solve"
+      },
+      "validation": {
+        "passed": true,
+        "patterns": 122
+      },
+      "source_sha256": "bed5156a24a3043a21dcdec394077ca07cea01f4a169126c8a5f4d618cd106c3",
+      "setup_seconds": 0.008322624955326319,
+      "first_call_seconds": 0.007066583028063178,
+      "warm_seconds": [
+        0.007180250016972423,
+        0.0071590839652344584,
+        0.007170291966758668,
+        0.007138125016354024,
+        0.0071469590766355395
+      ],
+      "median_seconds": 0.0071590839652344584,
+      "minimum_seconds": 0.007138125016354024,
+      "maximum_seconds": 0.007180250016972423,
+      "python_traced_peak_bytes": 21280,
+      "fresh_worker_peak_rss_bytes": 27279360,
+      "profile": "         180650 function calls in 0.020 seconds\n\n   Ordered by: cumulative time\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000    0.020    0.020 core_cases.py:15(call)\n        1    0.004    0.004    0.020    0.020 combinatorics.py:177(exhaustive_patterns)\n    16384    0.005    0.000    0.010    0.000 {built-in method builtins.all}\n     2916    0.002    0.000    0.006    0.000 combinatorics.py:35(normalize)\n    97192    0.006    0.000    0.006    0.000 combinatorics.py:186(<genexpr>)\n    23328    0.003    0.000    0.005    0.000 combinatorics.py:37(<genexpr>)\n    20412    0.001    0.000    0.001    0.000 {method 'setdefault' of 'dict' objects}\n    20414    0.001    0.000    0.001    0.000 {built-in method builtins.len}\n        1    0.000    0.000    0.000    0.000 {built-in method builtins.sorted}\n        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}\n\n\n",
+      "implementation": "reference"
+    },
+    {
+      "case": "large",
+      "settings": {
+        "vertices": 8,
+        "colors": 4,
+        "geometry": "labelled path",
+        "variant": "reference",
+        "cost_scope": "pattern enumeration only; not LP solve"
+      },
+      "validation": {
+        "passed": true,
+        "patterns": 365
+      },
+      "source_sha256": "bed5156a24a3043a21dcdec394077ca07cea01f4a169126c8a5f4d618cd106c3",
+      "setup_seconds": 0.02966766699682921,
+      "first_call_seconds": 0.02822224993724376,
+      "warm_seconds": [
+        0.028164667077362537,
+        0.028091332991607487,
+        0.028179374989122152,
+        0.028168790973722935,
+        0.02794525003992021
+      ],
+      "median_seconds": 0.028164667077362537,
+      "minimum_seconds": 0.02794525003992021,
+      "maximum_seconds": 0.028179374989122152,
+      "python_traced_peak_bytes": 74000,
+      "fresh_worker_peak_rss_bytes": 27426816,
+      "profile": "         699254 function calls in 0.080 seconds\n\n   Ordered by: cumulative time\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000    0.080    0.080 core_cases.py:15(call)\n        1    0.014    0.014    0.080    0.080 combinatorics.py:177(exhaustive_patterns)\n    65536    0.020    0.000    0.044    0.000 {built-in method builtins.all}\n   406264    0.024    0.000    0.024    0.000 combinatorics.py:186(<genexpr>)\n     8748    0.005    0.000    0.022    0.000 combinatorics.py:35(normalize)\n    78732    0.010    0.000    0.016    0.000 combinatorics.py:37(<genexpr>)\n    69984    0.004    0.000    0.004    0.000 {method 'setdefault' of 'dict' objects}\n    69986    0.002    0.000    0.002    0.000 {built-in method builtins.len}\n        1    0.000    0.000    0.000    0.000 {built-in method builtins.sorted}\n        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}\n\n\n",
+      "implementation": "reference"
+    },
+    {
+      "case": "large",
+      "settings": {
+        "vertices": 8,
+        "colors": 4,
+        "geometry": "labelled path",
+        "variant": "optimized",
+        "cost_scope": "pattern enumeration only; not LP solve"
+      },
+      "validation": {
+        "passed": true,
+        "patterns": 365
+      },
+      "source_sha256": "bed5156a24a3043a21dcdec394077ca07cea01f4a169126c8a5f4d618cd106c3",
+      "setup_seconds": 0.029942582943476737,
+      "first_call_seconds": 9.179196786135435e-05,
+      "warm_seconds": [
+        8.204206824302673e-05,
+        8.31669894978404e-05,
+        7.241696584969759e-05,
+        7.824995554983616e-05,
+        8.091703057289124e-05
+      ],
+      "median_seconds": 8.091703057289124e-05,
+      "minimum_seconds": 7.241696584969759e-05,
+      "maximum_seconds": 8.31669894978404e-05,
+      "python_traced_peak_bytes": 27600,
+      "fresh_worker_peak_rss_bytes": 27361280,
+      "profile": "         2847 function calls (2296 primitive calls) in 0.000 seconds\n\n   Ordered by: cumulative time\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n        1    0.000    0.000    0.000    0.000 core_cases.py:15(call)\n        1    0.000    0.000    0.000    0.000 combinatorics.py:153(proper_patterns)\n        1    0.000    0.000    0.000    0.000 combinatorics.py:40(proper_partitions)\n    552/1    0.000    0.000    0.000    0.000 combinatorics.py:43(add)\n     1119    0.000    0.000    0.000    0.000 {built-in method builtins.len}\n      551    0.000    0.000    0.000    0.000 {built-in method builtins.max}\n      365    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}\n        8    0.000    0.000    0.000    0.000 {built-in method builtins.any}\n      187    0.000    0.000    0.000    0.000 {built-in method builtins.min}\n       22    0.000    0.000    0.000    0.000 combinatorics.py:165(<genexpr>)\n        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}\n       30    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}\n        9    0.000    0.000    0.000    0.000 combinatorics.py:161(<genexpr>)\n\n\n",
+      "implementation": "optimized"
+    }
+  ]
+}
